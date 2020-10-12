@@ -1,1 +1,7 @@
 //authors: Olivia Caponigro, Alex Arnell, Natalie Konschnik, Talia Feldman, Josh Lyon
+
+questions:
+    1. do the records need to be in time order? e.g. could you have records at time 1,2,3,2,7,4 or do they have to be 1,2,3,4,5,6
+    2. should main be in a different file?
+    3. how do we read files in java lol
+    4. can initialization take O(n)?
