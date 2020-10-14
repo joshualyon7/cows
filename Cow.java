@@ -25,16 +25,20 @@ public class Cow {
     public String toString(){
         return("cow # " + id + ", lowest weight: " + lowestWeight + 
                 ", \nlatest weight: " + latestWeight + ", \navg milk: " + avgMilk + 
-                ", \ntotal milk: " + totalMilk + ", \nlatest milking: " + latestMilking + "\n");
+                ", \ntotal milk: " + totalMilk + ", \nlatest milking: " + latestMilking + 
+                "\ntemperature: " + temp + "\n");
     }
 
     /* <update functions> */
     public void updateCow(Action a, double val, int time){
+        System.out.println("calling update cow on: " + id);
         switch(a){
             case W :
                 updateWeight(val, time);
+                break;
             case M :
                 updateMilk(val, time);
+                break;
             case T :
                 updateTemp(val, time);
                 break;
@@ -54,6 +58,9 @@ public class Cow {
         if(lowestWeight != 0 && val < lowestWeight){
             lowestWeight = val;
         }
+        else if(lowestWeight == 0){
+            lowestWeight = val;
+        }
         latestWeight = val;
     }
 
@@ -61,8 +68,6 @@ public class Cow {
         temp = val;
     }
     /* </update functions> */
-
-
 
     /* <getters> */
     public int getId() {

@@ -28,13 +28,22 @@ public class CowSort {
                 String curStr = s.next();
                 strings.add(curStr);
                 String [] line = curStr.split(" ");
-                Cow newCow = new Cow( Integer.parseInt(line[0].trim()), 
-                                        Action.valueOf(line[1].trim()), 
-                                        Integer.parseInt(line[2].trim()), 
-                                        Integer.parseInt(line[3].trim()) );
-                cows.put(newCow.id, newCow);
-                    
-                //do string parsing logic to add/update cows
+                int id, value, time;
+
+                //new cow variables
+                id = Integer.parseInt(line[0].trim());
+                Action action = Action.valueOf(line[1].trim());
+                value = Integer.parseInt(line[2].trim());
+                time = Integer.parseInt(line[3].trim());
+
+                if(!cows.containsKey(id)){
+                    Cow newCow = new Cow(id, action, value, time);
+                    cows.put(newCow.id, newCow);
+                }
+                else{
+                    cows.get(id).updateCow(action, value, time);
+                }
+                
             }
 
         } catch (FileNotFoundException e) {
