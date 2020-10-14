@@ -28,15 +28,11 @@ public class CowSort {
                 String curStr = s.next();
                 strings.add(curStr);
                 String [] line = curStr.split(" ");
-                //Cow newCow = new Cow( Integer.parseInt(line[0]), 
-                //                        Action.valueOf(line[1]), 
-                //                        Integer.parseInt(line[2]), 
-                //                        Integer.parseInt(line[3]) );
-                System.out.println("added cow #: [" + line[0] + "]");
-                System.out.println("added cow #: [" + line[1] + "]");
-                System.out.println("added cow #: [" + line[2] + "]");
-                System.out.println("added cow #: [" + line[3] + "]");
-                //cows.put(newCow.id, newCow);
+                Cow newCow = new Cow( Integer.parseInt(line[0].trim()), 
+                                        Action.valueOf(line[1].trim()), 
+                                        Integer.parseInt(line[2].trim()), 
+                                        Integer.parseInt(line[3].trim()) );
+                cows.put(newCow.id, newCow);
                     
                 //do string parsing logic to add/update cows
             }
