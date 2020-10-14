@@ -22,6 +22,12 @@ public class Cow {
         updateCow(a, val, time);
     }
 
+    public String toString(){
+        return("cow # " + id + ", lowest weight: " + lowestWeight + 
+                ", \nlatest weight: " + latestWeight + ", \navg milk: " + avgMilk + 
+                ", \ntotal milk: " + totalMilk + ", \nlatest milking: " + latestMilking + "\n");
+    }
+
     /* <update functions> */
     public void updateCow(Action a, double val, int time){
         switch(a){
@@ -56,11 +62,7 @@ public class Cow {
     }
     /* </update functions> */
 
-    public String toString(){
-        return("cow # " + id + ", lowest weight: " + lowestWeight + 
-                ", latest weight: " + latestWeight + ", avg milk: " + avgMilk + 
-                ", total milk: " + totalMilk + ", latest milking: " + latestMilking);
-    }
+
 
     /* <getters> */
     public int getId() {
