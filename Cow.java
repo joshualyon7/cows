@@ -9,32 +9,52 @@ import java.util.Scanner;
 public class Cow {
     int id;
     double temp;
-    double lowestWeight;
-    double latestWeight;
+    double lowestWeight = 0;
+    double latestWeight = 0;
     int milkings = 0;
-    double avgMilk;
+    double avgMilk = 0;
     double totalMilk = 0;
     int latestMilking;
 
+    //constructor
     public Cow(int ID, Action a, double val, int time) {
         id = ID;
+        updateCow(a, val, time);
+    }
+
+    /* <update functions> */
+    public void updateCow(Action a, double val, int time){
         switch(a){
             case W :
-                lowestWeight = val;
-                latestWeight = val;
-                break;
+                updateWeight(val, time);
             case M :
-                milkings++;
-                totalMilk = val;
-                avgMilk = val;
-                latestMilking = time;
-                break;
+                updateMilk(val, time);
             case T :
+                updateTemp(val, time);
                 break;
             default:
                 break;
         }
     }
+
+    public void updateMilk(double val, int time){
+        milkings++;
+        totalMilk += val;
+        avgMilk = totalMilk/milkings;
+        latestMilking = time;
+    }
+
+    public void updateWeight(double val, int time){
+        if(lowestWeight != 0 && val < lowestWeight){
+            lowestWeight = val;
+        }
+        latestWeight = val;
+    }
+
+    public void updateTemp(double val, int time){
+        temp = val;
+    }
+    /* </update functions> */
 
     public String toString(){
         return("cow # " + id + ", lowest weight: " + lowestWeight + 
@@ -42,10 +62,38 @@ public class Cow {
                 ", total milk: " + totalMilk + ", latest milking: " + latestMilking);
     }
 
+    /* <getters> */
+    public int getId() {
+        return id;
+    }
 
+    public double getTemp() {
+        return temp;
+    }
 
-    
+    public double getLowestWeight() {
+        return lowestWeight;
+    }
 
+    public double getLatestWeight() {
+        return latestWeight;
+    }
 
+    public int getMilkings() {
+        return milkings;
+    }
+
+    public double getAvgMilk() {
+        return avgMilk;
+    }
+
+    public double getTotalMilk() {
+        return totalMilk;
+    }
+
+    public int getLatestMilking() {
+        return latestMilking;
+    }
+    /* </getters> */
 
 }
