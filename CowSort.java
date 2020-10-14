@@ -17,7 +17,6 @@ public class CowSort {
         CowSort cs = new CowSort();
         cs.parseFile("records.txt");
         System.out.println(cs.cows);
-
     }
 
     public void parseFile(String filename){

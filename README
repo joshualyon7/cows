@@ -6,3 +6,4 @@ questions:
     3. how do we read files in java lol
     4. can initialization take O(n)?
     5. can we use java.util/java.io libraries for this?
+    6. can we use collections.sort() (probably not, right?)
