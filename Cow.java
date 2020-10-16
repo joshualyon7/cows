@@ -7,21 +7,23 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Cow {
-    int id;
-    int temp;
-    int lowestWeight = 0;
-    int latestWeight = 0;
-    int milkings = 0;
-    int avgMilk = 0;
-    int totalMilk = 0;
-    int latestMilking;
+    int id; // unique id for a cow (used for the hashmap)
+    int temp; // latest temperature of a cow
+    int lowestWeight = 0; // lowest weight recorded 
+    int latestWeight = 0; // latest weight recorded
+    int milkings = 0; // number of milkings
+    int avgMilk = 0; // average milk produced 
+    int totalMilk = 0; //running total of all milkings
+    int latestMilking; // time of the latest milking
 
-    //constructor
+    // constructor
     public Cow(int ID, Action a, int val, int time) {
         id = ID;
         updateCow(a, val, time);
     }
 
+    // prints a cow record in the intended output format:
+    // "id lowestWeight latestWeight avgMilk"
     public String toString(){
         return(id + " " + lowestWeight + 
                 " " + latestWeight + " " + avgMilk);
