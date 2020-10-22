@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -13,20 +14,16 @@ public class CowSort {
     Vector<Cow> sortedCows = new Vector<Cow>();
     
     public static void main(String[] args) {
-        long startTime = System.nanoTime();
-        
         CowSort cs = new CowSort();
         Scanner si = new Scanner(System.in);
         String inputFile = si.nextLine();
         cs.parseFile(inputFile);
-        si.close();
+        
+        
         cs.sortCows(cs.cows);
         for(Cow c : cs.sortedCows){
             System.out.println(c);
         }
-        long endTime   = System.nanoTime();
-        long totalTime = endTime - startTime;
-        System.out.println("runtime = " + totalTime);
     }
 
     // takes in a filename, scans in per line and parses the records either 
