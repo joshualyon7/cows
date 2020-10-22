@@ -18,11 +18,14 @@ public class CowSort {
         Scanner si = new Scanner(System.in);
         String inputFile = si.nextLine();
         cs.parseFile(inputFile);
+        si.close();
+
+        Collections.sort(cs.sortedCows);//sort the cows based on our custom compareTo()
         
-        
-        cs.sortCows(cs.cows);
         for(Cow c : cs.sortedCows){
-            System.out.println(c);
+            if(c.avgMilk != 0 && c.lowestWeight != 0){
+                System.out.println(c);
+            }
         }
     }
 
@@ -48,6 +51,7 @@ public class CowSort {
                 if(!cows.containsKey(id)){ //if cow doesn't exist, create it and put it in the map
                     Cow newCow = new Cow(id, action, value, time);
                     cows.put(newCow.id, newCow);
+                    sortedCows.add(newCow);
                 }
                 else{ //otherwise, update the existing cow
                     cows.get(id).updateCow(action, value, time);
@@ -59,16 +63,6 @@ public class CowSort {
         }
     }
     
-    //sorts the cows
-    public void sortCows(HashMap<Integer, Cow> cows){
-        for(Integer k : cows.keySet()){
-            Cow current = cows.get(k);
-            if(current.avgMilk != 0 && current.lowestWeight != 0){
-                sortedCows.add(current);
-            }
-        }
-        Collections.sort(sortedCows);
-    }
 }   
 
 class Cow implements Comparable<Cow>{
